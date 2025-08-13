@@ -7,10 +7,10 @@
     "pnpm": ">=10",
     "yarn": "This project is configured to use pnpm"
   },
-  "dependencies": {
-    "typescript": "^5.7.2"
-  },
   "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "semver": "^7.7.2",
     "@types/node": "^24.2.1"
   }
 }
