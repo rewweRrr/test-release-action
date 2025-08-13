@@ -1,0 +1,84 @@
+name: Create Release (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Точная версия (если оставить пустой — bump по INPUT_BUMP)'
+        required: false
+      bump:
+        description: 'Тип bump, если version не указан (patch/minor/major)'
+        required: false
+        default: patch
+      from_branch:
+        description: 'Ветка разработки (откуда брать изменения, default = dev)'
+        required: false
+        default: dev
+      create_git_release:
+        description: 'Создать GitHub Release (true/false)'
+        required: false
+        default: 'true'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout selected branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.inputs.from_branch }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate CHANGELOG.md and bump package.json (TypeScript)
+        id: gen
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_VERSION: ${{ github.event.inputs.version }}
+          INPUT_BUMP: ${{ github.event.inputs.bump }}
+          FROM_BRANCH: ${{ github.event.inputs.from_branch }}
+        run: |
+          npx ts-node scripts/create-release.ts
+
+          cat release-info.json
+
+          echo "branch=$(jq -r .branch release-info.json)" >> $GITHUB_OUTPUT
+          echo "version=$(jq -r .version release-info.json)" >> $GITHUB_OUTPUT
+          echo "release_name=$(jq -r .release_name release-info.json)" >> $GITHUB_OUTPUT
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          jq -r .changelog release-info.json >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request with files
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: chore(release): v${{ steps.gen.outputs.version }}
+          branch: ${{ steps.gen.outputs.branch }}
+          title: ${{ steps.gen.outputs.release_name }}
+          body: ${{ steps.gen.outputs.changelog }}
+          base: main
+          labels: release
+
+      - name: Create GitHub Release (optional)
+        if: ${{ github.event.inputs.create_git_release == 'true' }}
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.gen.outputs.version }}
+          release_name: ${{ steps.gen.outputs.release_name }}
+          body: ${{ steps.gen.outputs.changelog }}
+          draft: false
+          prerelease: false
