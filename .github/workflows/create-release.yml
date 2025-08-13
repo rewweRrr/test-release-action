@@ -10,10 +10,6 @@ on:
         description: 'Тип bump, если version не указан (patch/minor/major)'
         required: false
         default: patch
-      create_git_release:
-        description: 'Создать GitHub Release (true/false)'
-        required: false
-        default: 'true'
 
 permissions:
   contents: write
@@ -82,5 +78,3 @@ jobs:
           title: ${{ steps.gen.outputs.release_name }}
           body: ${{ steps.gen.outputs.changelog }}
           labels: release
-          # если нужно — можно добавить reviewers или assignees
-          # reviewers: team-leads
