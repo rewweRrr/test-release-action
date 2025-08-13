@@ -32,14 +32,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate CHANGELOG.md and bump package.json (TypeScript)
+      - name: Generate release files (TypeScript)
         id: gen
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           INPUT_BUMP: ${{ github.event.inputs.bump }}
         run: |
           set -euo pipefail
-
           npx tsx scripts/create-release.ts
 
           if [ ! -f release-info.json ]; then
@@ -49,18 +48,19 @@ jobs:
 
           cat release-info.json
 
-          BRANCH=$(jq -r .branch release-info.json)
           VERSION=$(jq -r .version release-info.json)
           RELEASE_NAME=$(jq -r .release_name release-info.json)
           CHANGELOG=$(jq -r .changelog release-info.json)
 
-          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "release_name=$RELEASE_NAME" >> "$GITHUB_OUTPUT"
-
           echo "changelog<<EOF" >> "$GITHUB_OUTPUT"
           printf '%s\n' "$CHANGELOG" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Push commit and tag
+        run: |
+          git push origin dev --tags
 
       - name: Create Pull Request from dev to main
         uses: peter-evans/create-pull-request@v5

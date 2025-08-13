@@ -10,7 +10,7 @@ type ReleaseInfo = {
     version: string;
     release_name: string;
     changelog: string;
-    tag?: string;
+    tag: string;
 };
 
 function run(cmd: string) {
@@ -95,21 +95,32 @@ function main() {
 
     const branchName = "dev";
     const releaseName = `Release/v.${newVersion}`;
+    const tagName = `v${newVersion}`;
 
     const lastTag = gitLastTag();
     const commitsRaw = gitCommitsSince(lastTag);
     const changelogSection = generateChangelogSection(newVersion, commitsRaw);
 
+    // update files
     pkg.version = newVersion;
     writePackageJson(pkg);
     prependChangelog(changelogSection);
+
+    // commit changes
+    run(`git config user.name "github-actions[bot]"`);
+    run(`git config user.email "github-actions[bot]@users.noreply.github.com"`);
+    run(`git add package.json CHANGELOG.md`);
+    run(`git commit -m "chore(release): v${newVersion}"`);
+
+    // create git tag
+    run(`git tag ${tagName}`);
 
     const info: ReleaseInfo = {
         branch: branchName,
         version: newVersion,
         release_name: releaseName,
         changelog: changelogSection,
-        tag: `v${newVersion}`,
+        tag: tagName,
     };
 
     fs.writeFileSync("release-info.json", JSON.stringify(info, null, 2), "utf8");
