@@ -1,3 +1,10 @@
+## v0.0.19 — 2025-08-13
+
+- 77f4132 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
+- 7af4de1 test (nivo0616)
+- 2d26ef0 Merge pull request #14 from rewweRrr/release/v0.0.18 (rewweRrr)
+- 442378d chore(release): v0.0.18 (rewweRrr)
+
 ## v0.0.18 — 2025-08-13
 
 - 20a3538 test (nivo0616)
