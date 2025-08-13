@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 
-import {execSync} from "child_process";
+import { execSync } from "child_process";
 import * as fs from "fs";
 import * as path from "path";
 import * as semver from "semver";
@@ -14,7 +14,7 @@ type ReleaseInfo = {
 };
 
 function run(cmd: string) {
-    return execSync(cmd, {encoding: "utf8"}).trim();
+    return execSync(cmd, { encoding: "utf8" }).trim();
 }
 
 function safeRun(cmd: string) {
@@ -84,20 +84,15 @@ function generateChangelogSection(version: string, commitsRaw: string) {
 }
 
 function main() {
-    const inputVersion = process.env.INPUT_VERSION || "";
     const inputBump = (process.env.INPUT_BUMP || "patch") as semver.ReleaseType;
 
     const pkg = readPackageJson();
     const currentVersion: string = pkg.version || "0.0.0";
 
-    let newVersion = inputVersion.trim() || "";
-    if (!newVersion) {
-        const bumped = semver.inc(currentVersion, inputBump);
-        if (!bumped) throw new Error("Failed to bump version");
-        newVersion = bumped;
-    }
+    const bumped = semver.inc(currentVersion, inputBump);
+    if (!bumped) throw new Error("Failed to bump version");
+    const newVersion = bumped;
 
-    // ВОТ ЗДЕСЬ: всегда dev — мы коммитим в dev и создаём PR dev -> main
     const branchName = "dev";
     const releaseName = `Release/v.${newVersion}`;
 
