@@ -10,10 +10,6 @@ on:
         description: 'Тип bump, если version не указан (patch/minor/major)'
         required: false
         default: patch
-      from_branch:
-        description: 'Ветка разработки (откуда брать изменения, default = dev)'
-        required: false
-        default: dev
       create_git_release:
         description: 'Создать GitHub Release (true/false)'
         required: false
@@ -26,12 +22,13 @@ permissions:
 jobs:
   create-release:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout selected branch
+      - name: Checkout dev branch
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.event.inputs.from_branch }}
+          ref: dev
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -47,29 +44,45 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           INPUT_VERSION: ${{ github.event.inputs.version }}
           INPUT_BUMP: ${{ github.event.inputs.bump }}
-          FROM_BRANCH: ${{ github.event.inputs.from_branch }}
         run: |
-          npx ts-node scripts/create-release.ts
+          set -euo pipefail
+
+          # Запускаем TypeScript-скрипт через tsx
+          npx tsx scripts/create-release.ts
+
+          if [ ! -f release-info.json ]; then
+            echo "release-info.json not found"
+            exit 1
+          fi
 
           cat release-info.json
 
-          echo "branch=$(jq -r .branch release-info.json)" >> $GITHUB_OUTPUT
-          echo "version=$(jq -r .version release-info.json)" >> $GITHUB_OUTPUT
-          echo "release_name=$(jq -r .release_name release-info.json)" >> $GITHUB_OUTPUT
-          echo "changelog<<EOF" >> $GITHUB_OUTPUT
-          jq -r .changelog release-info.json >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          BRANCH=$(jq -r .branch release-info.json)
+          VERSION=$(jq -r .version release-info.json)
+          RELEASE_NAME=$(jq -r .release_name release-info.json)
+          CHANGELOG=$(jq -r .changelog release-info.json)
 
-      - name: Create Pull Request with files
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "release_name=$RELEASE_NAME" >> "$GITHUB_OUTPUT"
+
+          echo "changelog<<EOF" >> "$GITHUB_OUTPUT"
+          printf '%s\n' "$CHANGELOG" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Create Pull Request from dev to main
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: chore(release): v${{ steps.gen.outputs.version }}
-          branch: ${{ steps.gen.outputs.branch }}
+          # commit into ветки dev (head) и PR -> main (base)
+          branch: dev
+          base: main
+          commit-message: "chore(release): v${{ steps.gen.outputs.version }}"
           title: ${{ steps.gen.outputs.release_name }}
           body: ${{ steps.gen.outputs.changelog }}
-          base: main
           labels: release
+          # если нужно — можно добавить reviewers или assignees
+          # reviewers: team-leads
 
       - name: Create GitHub Release (optional)
         if: ${{ github.event.inputs.create_git_release == 'true' }}

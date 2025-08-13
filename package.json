@@ -1,0 +1,17 @@
+{
+  "name": "test-git-workflows",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.14.0",
+  "engines": {
+    "node": "^22",
+    "pnpm": ">=10",
+    "yarn": "This project is configured to use pnpm"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "@types/semver": "^7.7.0",
+    "semver": "^7.7.2",
+    "tsx": "^4.20.4",
+    "typescript": "^5.7.2"
+  }
+}
