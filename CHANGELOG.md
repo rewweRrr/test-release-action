@@ -1,3 +1,9 @@
+## v0.0.22 — 2025-08-13
+
+- 990f43b test (nivo0616)
+- caafd39 Merge pull request #17 from rewweRrr/release/v0.0.21 (rewweRrr)
+- e1888fb chore(release): v0.0.21 (rewweRrr)
+
 ## v0.0.21 — 2025-08-13
 
 - c8815f1 test (nivo0616)
