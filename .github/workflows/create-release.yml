@@ -59,6 +59,7 @@ jobs:
           echo "EOF" >> "$GITHUB_OUTPUT"
 
       - name: Create Pull Request from release to dev
+        id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
