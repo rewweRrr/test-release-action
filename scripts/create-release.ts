@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env tsx
 
 import { execSync } from "child_process";
 import * as fs from "fs";
@@ -86,7 +86,7 @@ function generateChangelogSection(version: string, commitsRaw: string) {
 function main() {
   const inputVersion = process.env.INPUT_VERSION || "";
   const inputBump = (process.env.INPUT_BUMP || "patch") as semver.ReleaseType;
-  const fromBranch = process.env.FROM_BRANCH || "dev";
+
 
   // read current version
   const pkg = readPackageJson();

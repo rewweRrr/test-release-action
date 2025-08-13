@@ -8,9 +8,10 @@
     "yarn": "This project is configured to use pnpm"
   },
   "devDependencies": {
-    "ts-node": "^10.9.2",
-    "typescript": "^5.7.2",
+    "@types/node": "^24.2.1",
+    "@types/semver": "^7.7.0",
     "semver": "^7.7.2",
-    "@types/node": "^24.2.1"
+    "tsx": "^4.20.4",
+    "typescript": "^5.7.2"
   }
 }
