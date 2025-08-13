@@ -1,3 +1,28 @@
+## v0.0.7 — 2025-08-13
+
+- eda3549 remove from create-release.yml (nivo0616)
+- 5c9f90d Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
+- cc0b2ac chore(release): v0.0.6 (rewweRrr)
+- 5acbd2d Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
+- 909198b remove from create-release.yml (nivo0616)
+- 54b618e Merge pull request #3 from rewweRrr/dev (rewweRrr)
+- 6eb5af4 chore(release): v0.0.5 (rewweRrr)
+- 92172f5 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
+- f6fff17 fix (nivo0616)
+- 74fb860 chore(release): v0.0.4 (rewweRrr)
+- e962394 Merge pull request #2 from rewweRrr/dev (rewweRrr)
+- a1864a0 chore(release): v0.0.1 (rewweRrr)
+- fe5d8d7 Merge pull request #1 from rewweRrr/dev (rewweRrr)
+- 4270c1a pack json (nivo0616)
+- b6355d6 pack json (nivo0616)
+- bb4452e pack json (nivo0616)
+- 89af820 pack json (nivo0616)
+- f52aa98 Update create-release.yml (rewweRrr)
+- 4ac4175 Create tsconfig.json (rewweRrr)
+- a26e9ba Create package.json (rewweRrr)
+- 605f91d Create create-release.ts (rewweRrr)
+- 7a641d9 Create create-release.yml (rewweRrr)
+
 ## v0.0.6 — 2025-08-13
 
 - 5acbd2d Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
