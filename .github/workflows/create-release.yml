@@ -65,6 +65,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: release/v${{ steps.gen.outputs.version }}
           base: dev
+          delete-branch: true
           commit-message: "chore(release): v${{ steps.gen.outputs.version }}"
           title: ${{ steps.gen.outputs.release_name }}
           body: ${{ steps.gen.outputs.changelog }}
