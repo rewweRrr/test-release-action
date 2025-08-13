@@ -84,15 +84,3 @@ jobs:
           labels: release
           # если нужно — можно добавить reviewers или assignees
           # reviewers: team-leads
-
-      - name: Create GitHub Release (optional)
-        if: ${{ github.event.inputs.create_git_release == 'true' }}
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.gen.outputs.version }}
-          release_name: ${{ steps.gen.outputs.release_name }}
-          body: ${{ steps.gen.outputs.changelog }}
-          draft: false
-          prerelease: false
