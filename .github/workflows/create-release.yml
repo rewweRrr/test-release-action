@@ -58,12 +58,14 @@ jobs:
           printf '%s\n' "$CHANGELOG" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
 
-      - name: Create Pull Request from dev to main
+      - name: Create Pull Request from release to dev
+        id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: dev
-          base: main
+          branch: release/v${{ steps.gen.outputs.version }}
+          base: dev
+          delete-branch: true
           commit-message: "chore(release): v${{ steps.gen.outputs.version }}"
           title: ${{ steps.gen.outputs.release_name }}
           body: ${{ steps.gen.outputs.changelog }}
@@ -80,3 +82,14 @@ jobs:
 
       - name: Push tag
         run: git push origin tag v${{ steps.gen.outputs.version }} || echo ""
+
+      - name: Enable Pull Request Automerge
+        run: gh pr merge --merge --auto "${{ steps.cpr.outputs.pull-request-number }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Pull Request from dev to main
+        run: gh pr create --base "main" --head "dev" --label "release" --title "Merge dev into main" --body "${{ steps.gen.outputs.changelog }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

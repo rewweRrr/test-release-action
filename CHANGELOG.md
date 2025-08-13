@@ -1,3 +1,76 @@
+## v0.0.28 — 2025-08-13
+
+- 755a036 test (nivo0616)
+- 069484c Merge pull request #25 from rewweRrr/release/v0.0.27 (github-actions[bot])
+- 33efcc1 chore(release): v0.0.27 (rewweRrr)
+
+## v0.0.27 — 2025-08-13
+
+- 5019604 test (nivo0616)
+- 53bea93 Merge pull request #24 from rewweRrr/release/v0.0.26 (github-actions[bot])
+- ca4aacb chore(release): v0.0.26 (rewweRrr)
+- 8b3b6fe test (nivo0616)
+- 4486c86 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
+- 299d7fd Merge pull request #13 from rewweRrr/dev (rewweRrr)
+
+## v0.0.26 — 2025-08-13
+
+- 8b3b6fe test (nivo0616)
+- 4486c86 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
+- 299d7fd Merge pull request #13 from rewweRrr/dev (rewweRrr)
+
+## v0.0.25 — 2025-08-13
+
+- c66aea5 test (nivo0616)
+- df6f309 Merge pull request #20 from rewweRrr/release/v0.0.24 (github-actions[bot])
+- 191cb91 chore(release): v0.0.24 (rewweRrr)
+
+## v0.0.24 — 2025-08-13
+
+- 7e48f4e Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
+- 02aeb29 Merge pull request #19 from rewweRrr/release/v0.0.23 (rewweRrr)
+- df06a15 test (nivo0616)
+- 4d200f9 chore(release): v0.0.23 (rewweRrr)
+
+## v0.0.23 — 2025-08-13
+
+- 9ebb5bb test (nivo0616)
+- a1360aa Merge pull request #18 from rewweRrr/release/v0.0.22 (rewweRrr)
+- 38a753e chore(release): v0.0.22 (rewweRrr)
+
+## v0.0.22 — 2025-08-13
+
+- 990f43b test (nivo0616)
+- caafd39 Merge pull request #17 from rewweRrr/release/v0.0.21 (rewweRrr)
+- e1888fb chore(release): v0.0.21 (rewweRrr)
+
+## v0.0.21 — 2025-08-13
+
+- c8815f1 test (nivo0616)
+- 401ae28 Merge pull request #16 from rewweRrr/release/v0.0.20 (rewweRrr)
+- 97a58b3 chore(release): v0.0.20 (rewweRrr)
+- 67008e3 test (nivo0616)
+
+## v0.0.20 — 2025-08-13
+
+- 67008e3 test (nivo0616)
+
+## v0.0.19 — 2025-08-13
+
+- 77f4132 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
+- 7af4de1 test (nivo0616)
+- 2d26ef0 Merge pull request #14 from rewweRrr/release/v0.0.18 (rewweRrr)
+- 442378d chore(release): v0.0.18 (rewweRrr)
+
+## v0.0.18 — 2025-08-13
+
+- 20a3538 test (nivo0616)
+- 60e9c73 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
+- ee8d856 test (nivo0616)
+- 23b9b16 test (nivo0616)
+- b56d033 test (nivo0616)
+- b61d510 revert (nivo0616)
+
 ## v0.0.17 — 2025-08-13
 
 - ee8d856 test (nivo0616)
