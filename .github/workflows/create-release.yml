@@ -27,7 +27,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
 
       - name: Install dependencies
         run: npm ci
@@ -59,7 +59,7 @@ jobs:
           echo "EOF" >> "$GITHUB_OUTPUT"
 
       - name: Create Pull Request from dev to main
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: dev
@@ -68,3 +68,15 @@ jobs:
           title: ${{ steps.gen.outputs.release_name }}
           body: ${{ steps.gen.outputs.changelog }}
           labels: release
+
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1.18.0
+        with:
+          name: Release v${{ steps.gen.outputs.version }}
+          tag: v${{ steps.gen.outputs.version }}
+          commit: ${{ github.head_ref || github.ref_name }}
+          body: ${{ steps.gen.outputs.changelog }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push tag
+        run: git push origin tag v${{ steps.gen.outputs.version }} || echo ""
