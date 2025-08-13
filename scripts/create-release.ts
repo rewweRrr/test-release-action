@@ -88,8 +88,10 @@ function main() {
 
     const pkg = readPackageJson();
     const currentVersion: string = pkg.version || "0.0.0";
-
+    console.log('pkg.version', pkg.version)
     const bumped = semver.inc(currentVersion, inputBump);
+
+    console.log('bumped', bumped)
     if (!bumped) throw new Error("Failed to bump version");
     const newVersion = bumped;
 
