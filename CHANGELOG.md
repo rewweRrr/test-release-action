@@ -1,3 +1,12 @@
+## v0.0.27 — 2025-08-13
+
+- 5019604 test (nivo0616)
+- 53bea93 Merge pull request #24 from rewweRrr/release/v0.0.26 (github-actions[bot])
+- ca4aacb chore(release): v0.0.26 (rewweRrr)
+- 8b3b6fe test (nivo0616)
+- 4486c86 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
+- 299d7fd Merge pull request #13 from rewweRrr/dev (rewweRrr)
+
 ## v0.0.26 — 2025-08-13
 
 - 8b3b6fe test (nivo0616)
