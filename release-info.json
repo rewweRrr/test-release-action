@@ -1,7 +1,7 @@
 {
   "branch": "dev",
-  "version": "0.0.22",
-  "release_name": "Release/v.0.0.22",
-  "changelog": "## v0.0.22 — 2025-08-13\n\n- 990f43b test (nivo0616)\n- caafd39 Merge pull request #17 from rewweRrr/release/v0.0.21 (rewweRrr)\n- e1888fb chore(release): v0.0.21 (rewweRrr)",
-  "tag": "v0.0.22"
+  "version": "0.0.23",
+  "release_name": "Release/v.0.0.23",
+  "changelog": "## v0.0.23 — 2025-08-13\n\n- 9ebb5bb test (nivo0616)\n- a1360aa Merge pull request #18 from rewweRrr/release/v0.0.22 (rewweRrr)\n- 38a753e chore(release): v0.0.22 (rewweRrr)",
+  "tag": "v0.0.23"
 }
