@@ -94,4 +94,6 @@ jobs:
         with:
           tag_name: v${{ steps.gen.outputs.version }}
           release_name: ${{ steps.gen.outputs.release_name }}
-          body: ${{ steps.gen.outputs.changel
+          body: ${{ steps.gen.outputs.changelog }}
+          draft: false
+          prerelease: false
