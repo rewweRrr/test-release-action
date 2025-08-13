@@ -1,7 +1,7 @@
 {
   "branch": "dev",
-  "version": "0.0.1",
-  "release_name": "Release/v.0.0.1",
-  "changelog": "## v0.0.1 — 2025-08-13\n\n- 4270c1a pack json (nivo0616)\n- b6355d6 pack json (nivo0616)\n- bb4452e pack json (nivo0616)\n- 89af820 pack json (nivo0616)\n- f52aa98 Update create-release.yml (rewweRrr)\n- 4ac4175 Create tsconfig.json (rewweRrr)\n- a26e9ba Create package.json (rewweRrr)\n- 605f91d Create create-release.ts (rewweRrr)\n- 7a641d9 Create create-release.yml (rewweRrr)",
-  "tag": "v0.0.1"
+  "version": "0.0.5",
+  "release_name": "Release/v.0.0.5",
+  "changelog": "## v0.0.5 — 2025-08-13\n\n- 92172f5 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)\n- f6fff17 fix (nivo0616)\n- 74fb860 chore(release): v0.0.4 (rewweRrr)\n- e962394 Merge pull request #2 from rewweRrr/dev (rewweRrr)\n- a1864a0 chore(release): v0.0.1 (rewweRrr)\n- fe5d8d7 Merge pull request #1 from rewweRrr/dev (rewweRrr)\n- 4270c1a pack json (nivo0616)\n- b6355d6 pack json (nivo0616)\n- bb4452e pack json (nivo0616)\n- 89af820 pack json (nivo0616)\n- f52aa98 Update create-release.yml (rewweRrr)\n- 4ac4175 Create tsconfig.json (rewweRrr)\n- a26e9ba Create package.json (rewweRrr)\n- 605f91d Create create-release.ts (rewweRrr)\n- 7a641d9 Create create-release.yml (rewweRrr)",
+  "tag": "v0.0.5"
 }
