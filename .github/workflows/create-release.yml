@@ -58,7 +58,7 @@ jobs:
           printf '%s\n' "$CHANGELOG" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
 
-      - name: Create Pull Request from dev to main
+      - name: Create Pull Request from release to dev
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
