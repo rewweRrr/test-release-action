@@ -1,3 +1,9 @@
+## v0.0.25 — 2025-08-13
+
+- c66aea5 test (nivo0616)
+- df6f309 Merge pull request #20 from rewweRrr/release/v0.0.24 (github-actions[bot])
+- 191cb91 chore(release): v0.0.24 (rewweRrr)
+
 ## v0.0.24 — 2025-08-13
 
 - 7e48f4e Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
