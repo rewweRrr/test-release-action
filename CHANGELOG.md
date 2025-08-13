@@ -1,3 +1,9 @@
+## v0.0.26 — 2025-08-13
+
+- bda69fa test (nivo0616)
+- 1e40e3f Merge pull request #21 from rewweRrr/release/v0.0.25 (github-actions[bot])
+- 4296adb chore(release): v0.0.25 (rewweRrr)
+
 ## v0.0.25 — 2025-08-13
 
 - c66aea5 test (nivo0616)
