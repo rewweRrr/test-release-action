@@ -1,7 +1,7 @@
 {
   "branch": "dev",
-  "version": "0.0.19",
-  "release_name": "Release/v.0.0.19",
-  "changelog": "## v0.0.19 — 2025-08-13\n\n- 77f4132 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)\n- 7af4de1 test (nivo0616)\n- 2d26ef0 Merge pull request #14 from rewweRrr/release/v0.0.18 (rewweRrr)\n- 442378d chore(release): v0.0.18 (rewweRrr)",
-  "tag": "v0.0.19"
+  "version": "0.0.20",
+  "release_name": "Release/v.0.0.20",
+  "changelog": "## v0.0.20 — 2025-08-13\n\n- 67008e3 test (nivo0616)",
+  "tag": "v0.0.20"
 }
