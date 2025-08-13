@@ -58,10 +58,6 @@ jobs:
           printf '%s\n' "$CHANGELOG" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
 
-      - name: Push commit and tag
-        run: |
-          git push origin dev --tags
-
       - name: Create Pull Request from dev to main
         uses: peter-evans/create-pull-request@v5
         with:
