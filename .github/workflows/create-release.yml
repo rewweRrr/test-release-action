@@ -62,8 +62,8 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: dev
-          base: main
+          branch: release/v${{ steps.gen.outputs.version }}
+          base: dev
           commit-message: "chore(release): v${{ steps.gen.outputs.version }}"
           title: ${{ steps.gen.outputs.release_name }}
           body: ${{ steps.gen.outputs.changelog }}
