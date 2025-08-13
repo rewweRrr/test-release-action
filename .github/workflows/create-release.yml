@@ -80,3 +80,6 @@ jobs:
 
       - name: Push tag
         run: git push origin tag v${{ steps.gen.outputs.version }} || echo ""
+
+      - name: Enable Pull Request Automerge
+        run: gh pr merge dev --merge --auto "1"
