@@ -1,7 +1,7 @@
 {
   "branch": "dev",
-  "version": "0.0.18",
-  "release_name": "Release/v.0.0.18",
-  "changelog": "## v0.0.18 — 2025-08-13\n\n- 20a3538 test (nivo0616)\n- 60e9c73 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)\n- ee8d856 test (nivo0616)\n- 23b9b16 test (nivo0616)\n- b56d033 test (nivo0616)\n- b61d510 revert (nivo0616)",
-  "tag": "v0.0.18"
+  "version": "0.0.19",
+  "release_name": "Release/v.0.0.19",
+  "changelog": "## v0.0.19 — 2025-08-13\n\n- 77f4132 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)\n- 7af4de1 test (nivo0616)\n- 2d26ef0 Merge pull request #14 from rewweRrr/release/v0.0.18 (rewweRrr)\n- 442378d chore(release): v0.0.18 (rewweRrr)",
+  "tag": "v0.0.19"
 }
