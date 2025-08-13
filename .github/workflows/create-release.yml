@@ -89,12 +89,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Pull Request from dev to main
-        uses: peter-evans/create-pull-request@v7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: dev
-          base: main
-          commit-message: "chore(release): v${{ steps.gen.outputs.version }}"
-          title: ${{ steps.gen.outputs.release_name }}
-          body: ${{ steps.gen.outputs.changelog }}
-          labels: release
+        run: gh pr create --merge "main" --head "dev" --label "release" --body "${{ steps.gen.outputs.changelog }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
