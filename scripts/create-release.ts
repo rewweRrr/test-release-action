@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 
-import {execSync} from "child_process";
+import { execSync } from "child_process";
 import * as fs from "fs";
 import * as path from "path";
 import * as semver from "semver";
@@ -10,11 +10,11 @@ type ReleaseInfo = {
     version: string;
     release_name: string;
     changelog: string;
-    tag?: string;
+    tag: string;
 };
 
 function run(cmd: string) {
-    return execSync(cmd, {encoding: "utf8"}).trim();
+    return execSync(cmd, { encoding: "utf8" }).trim();
 }
 
 function safeRun(cmd: string) {
@@ -84,37 +84,43 @@ function generateChangelogSection(version: string, commitsRaw: string) {
 }
 
 function main() {
-    const inputVersion = process.env.INPUT_VERSION || "";
     const inputBump = (process.env.INPUT_BUMP || "patch") as semver.ReleaseType;
 
     const pkg = readPackageJson();
     const currentVersion: string = pkg.version || "0.0.0";
 
-    let newVersion = inputVersion.trim() || "";
-    if (!newVersion) {
-        const bumped = semver.inc(currentVersion, inputBump);
-        if (!bumped) throw new Error("Failed to bump version");
-        newVersion = bumped;
-    }
+    const bumped = semver.inc(currentVersion, inputBump);
+    if (!bumped) throw new Error("Failed to bump version");
+    const newVersion = bumped;
 
-    // ВОТ ЗДЕСЬ: всегда dev — мы коммитим в dev и создаём PR dev -> main
     const branchName = "dev";
     const releaseName = `Release/v.${newVersion}`;
+    const tagName = `v${newVersion}`;
 
     const lastTag = gitLastTag();
     const commitsRaw = gitCommitsSince(lastTag);
     const changelogSection = generateChangelogSection(newVersion, commitsRaw);
 
+    // update files
     pkg.version = newVersion;
     writePackageJson(pkg);
     prependChangelog(changelogSection);
+
+    // commit changes
+    run(`git config user.name "github-actions[bot]"`);
+    run(`git config user.email "github-actions[bot]@users.noreply.github.com"`);
+    run(`git add package.json CHANGELOG.md`);
+    run(`git commit -m "chore(release): v${newVersion}"`);
+
+    // create git tag
+    run(`git tag ${tagName}`);
 
     const info: ReleaseInfo = {
         branch: branchName,
         version: newVersion,
         release_name: releaseName,
         changelog: changelogSection,
-        tag: `v${newVersion}`,
+        tag: tagName,
     };
 
     fs.writeFileSync("release-info.json", JSON.stringify(info, null, 2), "utf8");

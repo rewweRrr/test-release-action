@@ -3,21 +3,15 @@ name: Create Release (manual)
 on:
   workflow_dispatch:
     inputs:
-      version:
-        description: 'Точная версия (если оставить пустой — bump по INPUT_BUMP)'
-        required: false
       bump:
-        description: 'Тип bump, если version не указан (patch/minor/major)'
+        description: 'Тип bump (patch/minor/major)'
         required: false
         default: patch
-      create_git_release:
-        description: 'Создать GitHub Release (true/false)'
-        required: false
-        default: 'true'
 
 permissions:
   contents: write
   pull-requests: write
+  issues: write
 
 jobs:
   create-release:
@@ -38,16 +32,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate CHANGELOG.md and bump package.json (TypeScript)
+      - name: Generate release files (TypeScript)
         id: gen
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          INPUT_VERSION: ${{ github.event.inputs.version }}
           INPUT_BUMP: ${{ github.event.inputs.bump }}
         run: |
           set -euo pipefail
-
-          # Запускаем TypeScript-скрипт через tsx
           npx tsx scripts/create-release.ts
 
           if [ ! -f release-info.json ]; then
@@ -57,41 +48,27 @@ jobs:
 
           cat release-info.json
 
-          BRANCH=$(jq -r .branch release-info.json)
           VERSION=$(jq -r .version release-info.json)
           RELEASE_NAME=$(jq -r .release_name release-info.json)
           CHANGELOG=$(jq -r .changelog release-info.json)
 
-          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "release_name=$RELEASE_NAME" >> "$GITHUB_OUTPUT"
-
           echo "changelog<<EOF" >> "$GITHUB_OUTPUT"
           printf '%s\n' "$CHANGELOG" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Push commit and tag
+        run: |
+          git push origin dev --tags
 
       - name: Create Pull Request from dev to main
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # commit into ветки dev (head) и PR -> main (base)
           branch: dev
           base: main
           commit-message: "chore(release): v${{ steps.gen.outputs.version }}"
           title: ${{ steps.gen.outputs.release_name }}
           body: ${{ steps.gen.outputs.changelog }}
           labels: release
-          # если нужно — можно добавить reviewers или assignees
-          # reviewers: team-leads
-
-      - name: Create GitHub Release (optional)
-        if: ${{ github.event.inputs.create_git_release == 'true' }}
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.gen.outputs.version }}
-          release_name: ${{ steps.gen.outputs.release_name }}
-          body: ${{ steps.gen.outputs.changelog }}
-          draft: false
-          prerelease: false
