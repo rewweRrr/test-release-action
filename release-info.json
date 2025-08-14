@@ -1,6 +1,6 @@
 {
-  "version": "0.1.4",
-  "release_name": "Release/v.0.1.4",
-  "changelog": "## v0.1.4 — 2025-08-14\n\n- 61fd51a check (nivo0616)\n- 8582c84 revert (nivo0616)\n- 118e35d Merge remote-tracking branch 'origin/dev' into dev (nivo0616)\n- c78d635 fix bug (nivo0616)",
-  "tag": "v0.1.4"
+  "version": "0.1.5",
+  "release_name": "Release/v.0.1.5",
+  "changelog": "## v0.1.5 — 2025-08-14\n\n- 05fa74d test (nivo0616)\n- e7f34d5 test (nivo0616)",
+  "tag": "v0.1.5"
 }
