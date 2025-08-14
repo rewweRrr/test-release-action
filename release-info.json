@@ -1,6 +1,6 @@
 {
-  "version": "0.0.36",
-  "release_name": "Release/v.0.0.36",
-  "changelog": "## v0.0.36 — 2025-08-14\n\n- 9793009 test 39 (nivo0616)\n- c84477c Release/v.0.0.35 (#41) (github-actions[bot])\n- 86f49b5 chore(release): v0.0.35 (rewweRrr)",
-  "tag": "v0.0.36"
+  "version": "0.0.37",
+  "release_name": "Release/v.0.0.37",
+  "changelog": "## v0.0.37 — 2025-08-14\n\n- 5629149 test 40 (nivo0616)",
+  "tag": "v0.0.37"
 }
