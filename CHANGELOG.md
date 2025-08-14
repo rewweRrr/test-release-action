@@ -1,3 +1,10 @@
+## v0.1.4 — 2025-08-14
+
+- 61fd51a check (nivo0616)
+- 8582c84 revert (nivo0616)
+- 118e35d Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
+- c78d635 fix bug (nivo0616)
+
 ## v0.1.3 — 2025-08-14
 
 - 1079768 change workflow (nivo0616)
