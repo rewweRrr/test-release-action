@@ -92,8 +92,6 @@ function main() {
     if (!bumped) throw new Error("Failed to bump version");
     const newVersion = bumped;
 
-    const releaseName = `Release/v.${newVersion}`;
-
     const lastTag = gitLastTag();
     const commitsRaw = gitCommitsSince(lastTag);
     const changelogSection = generateChangelogSection(newVersion, commitsRaw);
@@ -105,7 +103,7 @@ function main() {
 
     const info: ReleaseInfo = {
         version: newVersion,
-        release_name: releaseName,
+        release_name: `Release/v.${newVersion}`,
         changelog: changelogSection,
         tag: `v${newVersion}`,
     };
