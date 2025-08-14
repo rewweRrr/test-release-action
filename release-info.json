@@ -1,6 +1,6 @@
 {
-  "version": "0.1.0",
-  "release_name": "Release/v.0.1.0",
-  "changelog": "## v0.1.0 — 2025-08-14\n\n- b63b219 readme change (nivo0616)\n- efb5faf auto merge (nivo0616)",
-  "tag": "v0.1.0"
+  "version": "0.1.1",
+  "release_name": "Release/v.0.1.1",
+  "changelog": "## v0.1.1 — 2025-08-14\n\n- 850b106 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)\n- 4abac32 readme change (nivo0616)",
+  "tag": "v0.1.1"
 }
