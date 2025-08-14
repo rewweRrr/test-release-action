@@ -1,3 +1,10 @@
+## v0.0.33 — 2025-08-14
+
+- b32a23b test 35 (nivo0616)
+- 6b5ed16 test 34 (nivo0616)
+- 39682cf Merge pull request #33 from rewweRrr/release/v0.0.32 (github-actions[bot])
+- ad2ab35 chore(release): v0.0.32 (rewweRrr)
+
 ## v0.0.32 — 2025-08-14
 
 - f03182c test 33 (nivo0616)
