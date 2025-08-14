@@ -103,3 +103,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Create Pull Request from dev to main
+        run: gh pr create --base "main" --head "dev" --title "Tmp" --body "tmp"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
