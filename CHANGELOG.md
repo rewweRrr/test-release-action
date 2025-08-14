@@ -1,3 +1,9 @@
+## v0.1.2 — 2025-08-14
+
+- 4321d77 readme change 42 (nivo0616)
+- 750c12b readme change 41 (nivo0616)
+- ec608eb readme change 40 (nivo0616)
+
 ## v0.1.1 — 2025-08-14
 
 - 850b106 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)
