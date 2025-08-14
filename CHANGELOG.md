@@ -1,3 +1,9 @@
+## v0.0.28 — 2025-08-13
+
+- 755a036 test (nivo0616)
+- 069484c Merge pull request #25 from rewweRrr/release/v0.0.27 (github-actions[bot])
+- 33efcc1 chore(release): v0.0.27 (rewweRrr)
+
 ## v0.0.27 — 2025-08-13
 
 - 5019604 test (nivo0616)
