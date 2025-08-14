@@ -1,6 +1,6 @@
 {
-  "version": "0.1.2",
-  "release_name": "Release/v.0.1.2",
-  "changelog": "## v0.1.2 — 2025-08-14\n\n- 4321d77 readme change 42 (nivo0616)\n- 750c12b readme change 41 (nivo0616)\n- ec608eb readme change 40 (nivo0616)",
-  "tag": "v0.1.2"
+  "version": "0.1.3",
+  "release_name": "Release/v.0.1.3",
+  "changelog": "## v0.1.3 — 2025-08-14\n\n- 1079768 change workflow (nivo0616)",
+  "tag": "v0.1.3"
 }
