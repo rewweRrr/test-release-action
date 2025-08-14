@@ -87,10 +87,9 @@ function main() {
     const pkg = readPackageJson();
     const currentVersion: string = pkg.version || "0.0.0";
 
-    const bumped = semver.inc(currentVersion, inputBump);
+    const newVersion = semver.inc(currentVersion, inputBump);
 
-    if (!bumped) throw new Error("Failed to bump version");
-    const newVersion = bumped;
+    if (!newVersion) throw new Error("Failed to bump version");
 
     const lastTag = gitLastTag();
     const commitsRaw = gitCommitsSince(lastTag);
