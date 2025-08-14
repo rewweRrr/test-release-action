@@ -1,7 +1,6 @@
 {
-  "branch": "dev",
-  "version": "0.0.35",
-  "release_name": "Release/v.0.0.35",
-  "changelog": "## v0.0.35 — 2025-08-14\n\n- f142308 test 38 (nivo0616)\n- 5cf8e2c Release/v.0.0.34 (#39) (github-actions[bot])\n- d2e8172 chore(release): v0.0.34 (rewweRrr)",
-  "tag": "v0.0.35"
+  "version": "0.0.36",
+  "release_name": "Release/v.0.0.36",
+  "changelog": "## v0.0.36 — 2025-08-14\n\n- 9793009 test 39 (nivo0616)\n- c84477c Release/v.0.0.35 (#41) (github-actions[bot])\n- 86f49b5 chore(release): v0.0.35 (rewweRrr)",
+  "tag": "v0.0.36"
 }
