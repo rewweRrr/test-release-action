@@ -1,3 +1,15 @@
+## v0.1.6 — 2025-08-14
+
+- 0ef5427 test 2 (nivo0616)
+- 881248c chore(release): v0.1.5 (github-actions)
+- 05fa74d test (nivo0616)
+- e7f34d5 test (nivo0616)
+
+## v0.1.5 — 2025-08-14
+
+- 05fa74d test (nivo0616)
+- e7f34d5 test (nivo0616)
+
 ## v0.1.4 — 2025-08-14
 
 - 61fd51a check (nivo0616)
