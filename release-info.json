@@ -1,6 +1,7 @@
 {
-  "version": "0.0.34",
-  "release_name": "Release/v.0.0.34",
-  "changelog": "## v0.0.34 — 2025-08-14\n\n- 04e7919 test 37 (#38) (rewweRrr)\n- 81e8116 test 37 (nivo0616)\n- f2abf26 test 36 (#37) (rewweRrr)\n- 04c7b51 test 36 (nivo0616)\n- 8c596a7 Merge pull request #35 from rewweRrr/release/v0.0.33 (github-actions[bot])\n- bdccd8d chore(release): v0.0.33 (rewweRrr)",
-  "tag": "v0.0.34"
+  "branch": "dev",
+  "version": "0.0.35",
+  "release_name": "Release/v.0.0.35",
+  "changelog": "## v0.0.35 — 2025-08-14\n\n- f142308 test 38 (nivo0616)\n- 5cf8e2c Release/v.0.0.34 (#39) (github-actions[bot])\n- d2e8172 chore(release): v0.0.34 (rewweRrr)",
+  "tag": "v0.0.35"
 }
