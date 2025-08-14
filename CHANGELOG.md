@@ -1,3 +1,9 @@
+## v0.0.36 — 2025-08-14
+
+- 9793009 test 39 (nivo0616)
+- c84477c Release/v.0.0.35 (#41) (github-actions[bot])
+- 86f49b5 chore(release): v0.0.35 (rewweRrr)
+
 ## v0.0.35 — 2025-08-14
 
 - f142308 test 38 (nivo0616)

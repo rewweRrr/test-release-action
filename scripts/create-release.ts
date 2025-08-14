@@ -6,7 +6,6 @@ import * as path from "path";
 import * as semver from "semver";
 
 type ReleaseInfo = {
-    branch: string;
     version: string;
     release_name: string;
     changelog: string;
@@ -68,17 +67,16 @@ function prependChangelog(newSection: string) {
 
 function generateChangelogSection(version: string, commitsRaw: string) {
     const date = isoDateToday();
-    let body = "";
+    let body;
     if (!commitsRaw) {
         body = "- (no commits found)";
     } else {
-        const lines = commitsRaw
+        body = commitsRaw
             .split("\n")
             .map((l) => l.trim())
             .filter(Boolean)
             .map((l) => `- ${l}`)
             .join("\n");
-        body = lines;
     }
     return `## v${version} — ${date}\n\n${body}`;
 }
@@ -88,14 +86,12 @@ function main() {
 
     const pkg = readPackageJson();
     const currentVersion: string = pkg.version || "0.0.0";
-    console.log('pkg.version', pkg.version)
+
     const bumped = semver.inc(currentVersion, inputBump);
 
-    console.log('bumped', bumped)
     if (!bumped) throw new Error("Failed to bump version");
     const newVersion = bumped;
 
-    const branchName = "dev";
     const releaseName = `Release/v.${newVersion}`;
 
     const lastTag = gitLastTag();
@@ -108,7 +104,6 @@ function main() {
     prependChangelog(changelogSection);
 
     const info: ReleaseInfo = {
-        branch: branchName,
         version: newVersion,
         release_name: releaseName,
         changelog: changelogSection,

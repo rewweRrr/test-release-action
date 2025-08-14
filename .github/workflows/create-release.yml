@@ -73,6 +73,11 @@ jobs:
           body: ${{ steps.gen.outputs.changelog }}
           labels: release
 
+      - name: Enable Pull Request Automerge
+        run: gh pr merge --merge --auto "${{ steps.cpr.outputs.pull-request-number }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1.18.0
         with:
@@ -81,14 +86,6 @@ jobs:
           commit: ${{ github.head_ref || github.ref_name }}
           body: ${{ steps.gen.outputs.changelog }}
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Enable Pull Request Automerge
-        run: gh pr merge --merge --auto "${{ steps.cpr.outputs.pull-request-number }}"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Push tag
-        run: git push origin tag ${{ steps.gen.outputs.tag }} || echo ""
 
       - name: Create Pull Request from dev to main
         run: gh pr create --base "main" --head "dev" --label "release" --title "${{ steps.gen.outputs.release_name }}" --body "${{ steps.gen.outputs.changelog }}"
