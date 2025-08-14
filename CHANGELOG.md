@@ -1,3 +1,13 @@
+## v0.0.32 — 2025-08-14
+
+- f03182c test 33 (nivo0616)
+- 9b2e567 test 32 (nivo0616)
+- dec6944 Merge branch 'main' into dev (rewweRrr)
+- 4ee47d0 Merge pull request #31 from rewweRrr/release/v0.0.31 (github-actions[bot])
+- a97ae9b chore(release): v0.0.31 (rewweRrr)
+- 2ea97d1 Merge dev into main (#30) (github-actions[bot])
+- ecc6947 Merge pull request #27 from rewweRrr/dev (rewweRrr)
+
 ## v0.0.31 — 2025-08-14
 
 - 4a21d59 test 4.1 (nivo0616)

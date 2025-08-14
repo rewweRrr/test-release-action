@@ -1,7 +1,7 @@
 {
   "branch": "dev",
-  "version": "0.0.31",
-  "release_name": "Release/v.0.0.31",
-  "changelog": "## v0.0.31 — 2025-08-14\n\n- 4a21d59 test 4.1 (nivo0616)\n- fcd3034 test 4 (nivo0616)\n- c9d1eeb Merge pull request #29 from rewweRrr/release/v0.0.30 (github-actions[bot])\n- 1c1be8a chore(release): v0.0.30 (rewweRrr)",
-  "tag": "v0.0.31"
+  "version": "0.0.32",
+  "release_name": "Release/v.0.0.32",
+  "changelog": "## v0.0.32 — 2025-08-14\n\n- f03182c test 33 (nivo0616)\n- 9b2e567 test 32 (nivo0616)\n- dec6944 Merge branch 'main' into dev (rewweRrr)\n- 4ee47d0 Merge pull request #31 from rewweRrr/release/v0.0.31 (github-actions[bot])\n- a97ae9b chore(release): v0.0.31 (rewweRrr)\n- 2ea97d1 Merge dev into main (#30) (github-actions[bot])\n- ecc6947 Merge pull request #27 from rewweRrr/dev (rewweRrr)",
+  "tag": "v0.0.32"
 }
