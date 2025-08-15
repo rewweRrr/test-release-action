@@ -3,7 +3,7 @@ import process from 'node:process'
 function getWeeekTaskIds(commitsRaw: string) {
   if (!commitsRaw) return []
 
-  const taskIds = Array.from(commitsRaw.matchAll(/\[WEEEK-(\d+)\]/)).map(match => match[1]).filter(Boolean)
+  const taskIds = Array.from(commitsRaw.matchAll(/\[WEEEK-(\d+)\]/g)).map(match => match[1]).filter(Boolean)
   return Array.from(new Set(taskIds))
 }
 
