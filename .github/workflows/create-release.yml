@@ -115,6 +115,8 @@ jobs:
           
           echo "pull_request_body=$BODY" >> "$GITHUB_OUTPUT"
           echo "pull_request_title=$TITLE" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Integration Release with Weeek
         run: npx tsx scripts/weeek-release.ts
