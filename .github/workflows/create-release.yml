@@ -87,8 +87,7 @@ jobs:
             --base "main" --head "dev" \
             --label "release" \
             --title "${{ steps.gen.outputs.release_name }}" \
-            --body "${{ steps.gen.outputs.changelog }}" \
-            --json number --jq '.number')
+            --body "${{ steps.gen.outputs.changelog }}")
           printf '%s\n' "$PR_NUM" >> "$GITHUB_OUTPUT"
           echo "pull_request_number=$PR_NUM" >> "$GITHUB_OUTPUT"
         env:
