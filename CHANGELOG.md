@@ -1,3 +1,9 @@
+## v0.1.12 — 2025-08-15
+
+- c570cfc [WEEEK-17] 1 (rewweRrr)
+- a6bd3e7 Merge remote-tracking branch 'origin/dev' into dev (rewweRrr)
+- 7d2abfd [WEEEK-17] 1 (rewweRrr)
+
 ## v0.1.11 — 2025-08-15
 
 - af40537 Merge remote-tracking branch 'origin/dev' into dev (rewweRrr)
