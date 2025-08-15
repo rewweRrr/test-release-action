@@ -93,7 +93,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Enable Dev to Main Pull Request Automerge
-        run: gh pr merge --merge --auto "${{ steps.cprdm.outputs.pull-request-number }}"
+        run: gh pr merge --merge --auto "${{ steps.cprdm.outputs.pull_request_link }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
