@@ -1,6 +1,6 @@
 {
-  "version": "0.1.16",
-  "release_name": "Release/v.0.1.16",
-  "changelog": "## v0.1.16 — 2025-08-15\n\n- 68ae75f Merge remote-tracking branch 'origin/dev' into dev (rewweRrr)\n- 09b8e7b [WEEEK-3] (rewweRrr)",
-  "tag": "v0.1.16"
+  "version": "0.1.17",
+  "release_name": "Release/v.0.1.17",
+  "changelog": "## v0.1.17 — 2025-08-15\n\n- 08625d0 [WEEEK-3] (rewweRrr)",
+  "tag": "v0.1.17"
 }

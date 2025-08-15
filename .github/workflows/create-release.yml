@@ -103,15 +103,15 @@ jobs:
           PR_VIEW=$(gh pr view "${{ steps.cprdm.outputs.pull_request_link }}" \
           --json "state,body,title")
           
-          STATE=$(jq -r .state $PR_VIEW)
+          STATE=$(echo $PR_VIEW | jq -r .state)
           
           if [ "$STATE" != "MERGED" ]; then
             echo "PR ${{ steps.cprdm.outputs.pull_request_link }} not merged (merged=$STATE). Exiting with error."
             exit 1
           fi
           
-          BODY=$(jq -r .body $PR_VIEW)
-          TITLE=$(jq -r .title $PR_VIEW)
+          BODY=$(echo $PR_VIEW | jq -r .body)
+          TITLE=$(echo $PR_VIEW | jq -r .title )
           
           echo "pull_request_body=$BODY" >> "$GITHUB_OUTPUT"
           echo "pull_request_title=$TITLE" >> "$GITHUB_OUTPUT"
