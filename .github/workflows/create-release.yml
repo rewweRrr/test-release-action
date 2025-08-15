@@ -83,13 +83,12 @@ jobs:
       - name: Create Pull Request from dev to main
         id: cprdm
         run: |
-          PR_NUM=$(gh pr create \
+          PR_LINK=$(gh pr create \
             --base "main" --head "dev" \
             --label "release" \
             --title "${{ steps.gen.outputs.release_name }}" \
             --body "${{ steps.gen.outputs.changelog }}")
-          printf '%s\n' "$PR_NUM" >> "$GITHUB_OUTPUT"
-          echo "pull_request_number=$PR_NUM" >> "$GITHUB_OUTPUT"
+          echo "pull_request_link=PR_LINK" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
