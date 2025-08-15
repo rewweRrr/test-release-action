@@ -1,0 +1,37 @@
+name: Integration Release with Weeek
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  weeek-release-integration:
+    if: ${{ github.event.pull_request.merged }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+#      - name: Get pr commits
+#        id: gprc
+#        run: gh pr view ${{ github.event.pull_request.number }} --json "commits"
+#        env:
+#          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Integration Release with Weeek
+        run: npx tsx scripts/weeek-release.ts
+        env:
+          WEEEK_API_KEY: ${{ secrets.WEEEK_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PR_BODY: ${{ github.event.pull_request.body }}
+          GITHUB_PR_TITLE: ${{ github.event.pull_request.title }}
