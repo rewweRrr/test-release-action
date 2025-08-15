@@ -1,6 +1,6 @@
 {
-  "version": "0.1.7",
-  "release_name": "Release/v.0.1.7",
-  "changelog": "## v0.1.7 — 2025-08-14\n\n- 9f32885 test 2 (nivo0616)",
-  "tag": "v0.1.7"
+  "version": "0.1.8",
+  "release_name": "Release/v.0.1.8",
+  "changelog": "## v0.1.8 — 2025-08-15\n\n- 1689830 [WEEEK-17] Test 2 (nivo0616)\n- f1daf27 [WEEEK-17] Test (nivo0616)\n- 61ac2b5 test 3 (nivo0616)\n- b51c05d test 2 (nivo0616)\n- 73e6c31 Merge remote-tracking branch 'origin/dev' into dev (nivo0616)\n- 0c649ae test 2 (nivo0616)",
+  "tag": "v0.1.8"
 }
