@@ -4,91 +4,40 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Camera or Gallery</title>
-    <style>
-        body { font-family: system-ui, sans-serif; padding: 24px; }
-        .row { display: flex; gap: 12px; flex-wrap: wrap; }
-        button {
-            padding: 10px 14px; border: 1px solid #ccc; border-radius: 10px;
-            background: #fff; cursor: pointer;
-        }
-        ul { margin-top: 16px; }
-    </style>
+
 </head>
 <body>
-<h1>Upload a photo</h1>
-<div class="row">
-    <button id="btn-camera">📷 Take photo</button>
-    <button id="btn-gallery">🖼️ Choose from gallery</button>
-</div>
-
-<!-- One hidden input, reused for both paths -->
-<input id="fileInput" type="file" hidden />
-
-<ul id="filesList"></ul>
-
-
 
 <br>
 <br>
 <br>
-<input type="file" accept="capture=camera,image/*">
-<br>
-<br>
-<br>
+accept="image/*"
 <input type="file" accept="image/*">
 <br>
 <br>
 <br>
-<input type="file" accept="image/*" capture>
+type="file" accept="image/*" capture="environment"
+<input type="file" accept="image/*" capture="environment">
 
 <br>
 <br>
 <br>
+type="file" only
 <input type="file">
 
 
 <br>
 <br>
 <br>
+accept="image/*,video/*"
 <input type="file" accept="image/*,video/*">
 
-<script>
-    const input = document.getElementById('fileInput');
-    const filesList = document.getElementById('filesList');
+<br>
+<br>
+<br>
+accept="*" capture="environment"
+<input type="file" accept="*" capture="environment">
 
-    // Show selected file names (optional)
-    input.addEventListener('change', () => {
-        filesList.innerHTML = '';
-        for (const f of input.files || []) {
-            const li = document.createElement('li');
-            li.textContent = ${f.name} (${Math.round(f.size/1024)} KB);
-            filesList.appendChild(li);
-        }
-    });
 
-    document.getElementById('btn-camera').addEventListener('click', () => {
-        // Camera path: single capture, no multiple
-        resetInput();
-        input.accept = 'image/*';
-        input.removeAttribute('multiple');
-        // Hint rear camera; use 'user' for selfie. Presence of capture = prefer camera.
-        input.setAttribute('capture', 'environment');
-        input.click();
-    });
-
-    document.getElementById('btn-gallery').addEventListener('click', () => {
-        // Gallery path: allow multiple, no capture hint
-        resetInput();
-        input.accept = 'image/*';
-        input.multiple = true;
-        input.removeAttribute('capture');
-        input.click();
-    });
-
-    function resetInput() {
-        // Ensure a new selection fires 'change' even if picking the same file
-        input.value = '';
-    }
-</script>
 </body>
 </html>
