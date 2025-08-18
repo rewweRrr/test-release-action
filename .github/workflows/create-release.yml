@@ -121,7 +121,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Integration Release with Weeek
-        run: npx tsx scripts/weeek-release.ts
+        run: scripts/weeek-release.js
         env:
           WEEEK_API_KEY: ${{ secrets.WEEEK_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
