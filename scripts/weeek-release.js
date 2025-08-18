@@ -1,5 +1,5 @@
 import process from 'node:process'
-import {githubApiConfig, techConfig, validateConfig, weeekApiConfig} from "./config";
+import {techConfig, validateConfig, weeekApiConfig} from "./config";
 import {createWeeekTag, getWeeekTask, updateWeeekTask} from "./api/weeek-api";
 
 export const config = {
@@ -22,14 +22,12 @@ function getWeeekTaskIds(commitsRaw) {
 async function main() {
     try {
         validateConfig(config)
-        const prTitle = process.env.GITHUB_PR_TITLE || ''
-        const weeekApiKey = process.env.WEEEK_API_KEY
 
         const taskIds = getWeeekTaskIds(config.githubPrBody)
 
         if (!taskIds.length) return
 
-        const tag = await createWeeekTag({ title: prTitle })
+        const tag = await createWeeekTag({ title: config.githubPrTitle })
 
         if (!taskIds.length) return
 
