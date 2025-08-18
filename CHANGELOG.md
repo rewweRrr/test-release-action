@@ -1,3 +1,8 @@
+## v1.0.1 — 2025-08-18
+
+- 3bb251e [WEEEK-17] Test 2 (rewweRrr)
+- 494e519 [WEEEK-1] Test 2 (rewweRrr)
+
 ## v1.0.0 — 2025-08-18
 
 - e49dac3 [WEEEK-1] Test 2 (rewweRrr)
