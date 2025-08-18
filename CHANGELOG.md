@@ -1,3 +1,15 @@
+## v1.0.0 — 2025-08-18
+
+- e49dac3 [WEEEK-1] Test 2 (rewweRrr)
+- a6c2efa [WEEEK-17] Test (rewweRrr)
+- 319a214 index (rewweRrr)
+- 9f34871 index (rewweRrr)
+- d7d9258 index (rewweRrr)
+- 16f393b index (rewweRrr)
+- dac5773 index (rewweRrr)
+- a4cafc7 index (rewweRrr)
+- c7aba88 index (rewweRrr)
+
 ## v0.1.21 — 2025-08-15
 
 - a23adac [WEEEK-17] (rewweRrr)
