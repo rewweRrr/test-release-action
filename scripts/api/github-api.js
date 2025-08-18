@@ -1,5 +1,5 @@
-import {logDebug} from "../log";
-import {githubApiConfig as config} from "../config";
+import {logDebug} from "../log.js";
+import {githubApiConfig as config} from "../config.js";
 
 async function fetchGithub(endpoint, options = {}) {
     const url = `https://api.github.com/repos/${config.githubRepository}${endpoint}`

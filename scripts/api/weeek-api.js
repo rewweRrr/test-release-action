@@ -1,5 +1,5 @@
-import {weeekApiConfig as config} from "../config";
-import {logDebug} from "../log";
+import {weeekApiConfig as config} from "../config.js";
+import {logDebug} from "../log.js";
 
 
 async function fetchWeeek(endpoint, options = {}) {
