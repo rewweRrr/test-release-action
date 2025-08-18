@@ -1,7 +1,7 @@
 import process from 'node:process'
-import {getWeeekTask, getWeeekWorkspace, updateWeeekTask} from "./api/weeek-api";
-import {createIssueComment, updatePr} from "./api/github-api";
-import {githubApiConfig, techConfig, validateConfig, weeekApiConfig} from "./config";
+import {getWeeekTask, getWeeekWorkspace, updateWeeekTask} from "./api/weeek-api.js";
+import {createIssueComment, updatePr} from "./api/github-api.js";
+import {githubApiConfig, techConfig, validateConfig, weeekApiConfig} from "./config.js";
 
 const extractTaskId = branch => branch.match(/weee?k-?(\d+)/i)?.[1]
 

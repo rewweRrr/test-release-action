@@ -1,6 +1,6 @@
 {
-  "version": "1.0.1",
-  "release_name": "Release/v.1.0.1",
-  "changelog": "## v1.0.1 — 2025-08-18\n\n- 3bb251e [WEEEK-17] Test 2 (rewweRrr)\n- 494e519 [WEEEK-1] Test 2 (rewweRrr)",
-  "tag": "v1.0.1"
+  "version": "1.0.2",
+  "release_name": "Release/v.1.0.2",
+  "changelog": "## v1.0.2 — 2025-08-18\n\n- 376c6df [WEEEK-17] Test 2 (rewweRrr)",
+  "tag": "v1.0.2"
 }

@@ -1,6 +1,6 @@
 import process from 'node:process'
-import {techConfig, validateConfig, weeekApiConfig} from "./config";
-import {createWeeekTag, getWeeekTask, updateWeeekTask} from "./api/weeek-api";
+import {techConfig, validateConfig, weeekApiConfig} from "./config.js";
+import {createWeeekTag, getWeeekTask, updateWeeekTask} from "./api/weeek-api.js";
 
 export const config = {
     // weeek
