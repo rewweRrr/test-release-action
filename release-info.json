@@ -1,6 +1,6 @@
 {
-  "version": "0.1.21",
-  "release_name": "Release/v.0.1.21",
-  "changelog": "## v0.1.21 — 2025-08-15\n\n- a23adac [WEEEK-17] (rewweRrr)",
-  "tag": "v0.1.21"
+  "version": "1.0.0",
+  "release_name": "Release/v.1.0.0",
+  "changelog": "## v1.0.0 — 2025-08-18\n\n- e49dac3 [WEEEK-1] Test 2 (rewweRrr)\n- a6c2efa [WEEEK-17] Test (rewweRrr)\n- 319a214 index (rewweRrr)\n- 9f34871 index (rewweRrr)\n- d7d9258 index (rewweRrr)\n- 16f393b index (rewweRrr)\n- dac5773 index (rewweRrr)\n- a4cafc7 index (rewweRrr)\n- c7aba88 index (rewweRrr)",
+  "tag": "v1.0.0"
 }
