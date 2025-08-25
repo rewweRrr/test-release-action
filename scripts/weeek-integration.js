@@ -1,21 +1,21 @@
 import process from 'node:process'
-import {getWeeekTask, getWeeekWorkspace, updateWeeekTask} from "./api/weeek-api.js";
-import {createIssueComment, updatePr} from "./api/github-api.js";
-import {githubApiConfig, techConfig, validateConfig, weeekApiConfig} from "./config.js";
+import { createIssueComment, updatePr } from './shared/api/github-api.js'
+import { getWeeekTask, getWeeekWorkspace, updateWeeekTask } from './shared/api/weeek-api.js'
+import { githubApiConfig, techConfig, validateConfig, weeekApiConfig } from './shared/utils/config.js'
 
 const extractTaskId = branch => branch.match(/weee?k-?(\d+)/i)?.[1]
 
 export const config = {
-    // weeek
-    ...weeekApiConfig,
-    weeekCustomGithubFieldId: '9f915b6a-01e4-4351-b8e7-a3550e4f4335',
-    // github
-    ...githubApiConfig,
-    githubPrUrl: process.env.GITHUB_PR_URL,
-    githubPrNumber: process.env.GITHUB_PR_NUMBER,
-    githubBranchName: process.env.GITHUB_BRANCH_NAME,
-    // tech
-    ...techConfig
+  // weeek
+  ...weeekApiConfig,
+  weeekCustomGithubFieldId: '9f915b6a-01e4-4351-b8e7-a3550e4f4335',
+  // github
+  ...githubApiConfig,
+  githubPrUrl: process.env.GITHUB_PR_URL,
+  githubPrNumber: process.env.GITHUB_PR_NUMBER,
+  githubBranchName: process.env.GITHUB_BRANCH_NAME,
+  // tech
+  ...techConfig,
 }
 
 function getWeeekTaskId() {
@@ -32,15 +32,13 @@ async function main() {
   const baseExceptionText = '❌ Error in PR weeek integration:'
   try {
     let exceptionCount = 0
-    validateConfig()
+    validateConfig(config)
 
     const taskId = getWeeekTaskId()
     if (!taskId) return
 
     try {
-      await updateWeeekTask(taskId, {
-          customFields: {[config.weeekCustomGithubFieldId]: config.githubPrUrl},
-      })
+      await updateWeeekTask(taskId, { customFields: { [config.weeekCustomGithubFieldId]: config.githubPrUrl } })
     }
     catch (error) {
       exceptionCount++
