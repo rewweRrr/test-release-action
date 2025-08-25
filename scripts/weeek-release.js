@@ -1,10 +1,10 @@
 import process from 'node:process'
 import {
-  createWeeekTag,
-  createWeeekTask,
-  getWeeekTask,
-  moveWeeekTaskToColumn,
-  updateWeeekTask,
+    createWeeekTag,
+    createWeeekTask,
+    getWeeekTask, getWeeekWorkspace,
+    moveWeeekTaskToColumn,
+    updateWeeekTask,
 } from './shared/api/weeek-api.js'
 import { techConfig, validateConfig, weeekApiConfig } from './shared/utils/config.js'
 
@@ -40,9 +40,17 @@ async function main() {
 
     if (!taskIds.length) return
 
+    const ws = await getWeeekWorkspace()
+
+      const links = []
+
     for (const taskId of taskIds) {
       try {
         const task = await getWeeekTask(taskId)
+
+        links.push(`[WEEEK-${taskId}] ${task.title}](https://app.weeek.net/ws/${ws.id}/task/${taskId})`)
+        links.push(`https://app.weeek.net/ws/${ws.id}/task/${taskId}`)
+        links.push(`<a href="https://app.weeek.net/ws/${ws.id}/task/${taskId}">[WEEEK-${taskId}] ${task.title}</a>`)
         const taskTags = task.tags ?? []
 
         await updateWeeekTask(taskId, { tags: [...taskTags, tag.id] })
@@ -62,7 +70,7 @@ async function main() {
         },
       ],
       title: config.githubPrTitle,
-      description: config.githubPrBody,
+      description: links.join('\n'),
       type: 'action',
     })
     await updateWeeekTask(task.id, { tags: [tag.id] })
