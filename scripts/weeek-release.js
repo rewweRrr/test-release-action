@@ -11,9 +11,9 @@ import { techConfig, validateConfig, weeekApiConfig } from './shared/utils/confi
 export const config = {
   // weeek
   ...weeekApiConfig,
-  weeekDoneColumnId: 102,
-  projectId: 2,
-  releaseBoardColumnId: 130,
+  weeekDoneColumnId: 3,
+  projectId: 1,
+  releaseBoardColumnId: 20,
   // github
   githubPrBody: process.env.GITHUB_PR_BODY,
   githubPrTitle: process.env.GITHUB_PR_TITLE,
