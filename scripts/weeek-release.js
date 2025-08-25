@@ -12,8 +12,8 @@ export const config = {
   // weeek
   ...weeekApiConfig,
   weeekDoneColumnId: 3,
-  projectId: 1,
-  releaseBoardColumnId: 20,
+  weeekProjectId: 1,
+  weeekReleaseColumnId: 20,
   // github
   githubPrBody: process.env.GITHUB_PR_BODY,
   githubPrTitle: process.env.GITHUB_PR_TITLE,
