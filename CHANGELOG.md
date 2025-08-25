@@ -1,3 +1,8 @@
+## v1.0.5 — 2025-08-25
+
+- d75e177 Merge remote-tracking branch 'origin/dev' into dev (rewweRrr)
+- 6288520 [WEEEK-17] Test 3 (rewweRrr)
+
 ## v1.0.4 — 2025-08-25
 
 - 27b1789 [WEEEK-17] Test 3 (rewweRrr)

@@ -47,7 +47,7 @@ async function main() {
 
         await updateWeeekTask(taskId, { tags: [...taskTags, tag.id] })
 
-        await moveWeeekTaskToColumn(taskId, { releaseBoardColumnId: config.weeekDoneColumnId })
+        await moveWeeekTaskToColumn(taskId, { boardColumnId: config.weeekDoneColumnId })
       }
       catch (error) {
         console.error('❌ Error in weeek release: ', `changing task: taskId ${taskId}`, error)
@@ -57,8 +57,8 @@ async function main() {
     const task = await createWeeekTask({
       locations: [
         {
-          projectId: config.projectId,
-          releaseBoardColumnId: config.releaseBoardColumnId,
+          projectId: config.weeekProjectId,
+          boardColumnId: config.weeekReleaseColumnId,
         },
       ],
       title: config.githubPrTitle,
