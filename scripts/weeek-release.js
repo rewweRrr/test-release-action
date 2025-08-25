@@ -48,9 +48,8 @@ async function main() {
       try {
         const task = await getWeeekTask(taskId)
 
-        links.push(`[WEEEK-${taskId}] ${task.title}](https://app.weeek.net/ws/${ws.id}/task/${taskId})`)
-        links.push(`https://app.weeek.net/ws/${ws.id}/task/${taskId}`)
-        links.push(`<a href="https://app.weeek.net/ws/${ws.id}/task/${taskId}">[WEEEK-${taskId}] ${task.title}</a>`)
+        links.push(`<a href="https://app.weeek.net/ws/${ws.id}/task/${taskId}">[WEEEK-${taskId}]</a> ${task.title}`)
+
         const taskTags = task.tags ?? []
 
         await updateWeeekTask(taskId, { tags: [...taskTags, tag.id] })
