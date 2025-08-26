@@ -70,7 +70,7 @@ async function main() {
       ],
       title: config.githubPrTitle,
       description: `<ul>${links.map(link => `<li>${link}</li>`)}</ul>`,
-      day: Date.now(),
+      day: new Date(),
       type: 'action',
     })
     await updateWeeekTask(task.id, { tags: [tag.id] })
