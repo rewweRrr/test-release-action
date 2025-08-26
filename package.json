@@ -1,6 +1,6 @@
 {
   "name": "test-git-workflows",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "packageManager": "pnpm@10.14.0",
   "engines": {
     "node": "^22",
