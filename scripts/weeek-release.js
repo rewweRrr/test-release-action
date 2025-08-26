@@ -61,6 +61,16 @@ async function main() {
       }
     }
 
+    const currentDateString = new Date().toLocaleString("ru-RU", {
+        timeZone: "Europe/Moscow",
+        hour12: false,
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+    })
+
     const task = await createWeeekTask({
       locations: [
         {
@@ -68,9 +78,8 @@ async function main() {
           boardColumnId: config.weeekReleaseColumnId,
         },
       ],
-      title: config.githubPrTitle,
+      title: `[${currentDateString}] ${config.githubPrTitle}`,
       description: `<ul>${links.map(link => `<li>${link}</li>`)}</ul>`,
-      day: new Date(),
       type: 'action',
     })
     await updateWeeekTask(task.id, { tags: [tag.id] })
