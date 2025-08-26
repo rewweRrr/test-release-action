@@ -69,7 +69,7 @@ async function main() {
         day: "numeric",
         hour: "numeric",
         minute: "numeric",
-    })
+    }).replace(',', '')
 
     const task = await createWeeekTask({
       locations: [
