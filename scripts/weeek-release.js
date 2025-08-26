@@ -79,7 +79,7 @@ async function main() {
         },
       ],
       title: `[${currentDateString}] ${config.githubPrTitle}`,
-      description: `<ul>${links.map(link => `<li>${link}</li>`)}</ul>`,
+      description: `<ul>${links.map(link => `<li>${link}</li>`).join('')}</ul>`,
       type: 'action',
     })
     await updateWeeekTask(task.id, { tags: [tag.id] })
