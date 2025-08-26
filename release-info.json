@@ -1,6 +1,6 @@
 {
-  "version": "1.0.9",
-  "release_name": "Release/v.1.0.9",
-  "changelog": "## v1.0.9 — 2025-08-26\n\n- c4f57d3 [WEEEK-17] Test 3 (rewweRrr)\n- 25ba03e Merge remote-tracking branch 'origin/dev' into dev (rewweRrr)\n- 69ee380 [WEEEK-19] Test 3 (rewweRrr)",
-  "tag": "v1.0.9"
+  "version": "1.0.10",
+  "release_name": "Release/v.1.0.10",
+  "changelog": "## v1.0.10 — 2025-08-26\n\n- e46fdb7 [WEEEK-19] Test 3 (rewweRrr)\n- 94716a5 Merge remote-tracking branch 'origin/dev' into dev (rewweRrr)\n- be138ef [WEEEK-17] Test 3 (rewweRrr)",
+  "tag": "v1.0.10"
 }
